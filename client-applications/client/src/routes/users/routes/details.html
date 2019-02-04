@@ -1,0 +1,50 @@
+<template>
+  <require from="components/assign-to-merchant"></require>
+  <div class="row mb-4">
+    <div class="col">
+      <div class="page-header">
+        <div class="page-title">
+          <h1>
+            ${user.firstName} ${user.lastName}
+            <small>(${user.merchant.name})</small>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-header">
+          <strong class="card-title">Tokens</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <p>
+                <label>Token: </label>
+                <template if.bind="token">
+                  <strong>${token}</strong>
+                </template>
+                <template if.bind="!token">
+                  <button click.delegate="getTokenForUser()">Get new token</button>
+                </template>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary" click.delegate="toggleAssignToMerchant()">Assign to Merchant</button>
+    </div>
+  </div>
+
+  <template if.bind="isAssigningToMerchant">
+    <assign-to-merchant user.bind="user"></assign-to-merchant>
+  </template>
+</template>

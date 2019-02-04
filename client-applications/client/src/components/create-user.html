@@ -1,0 +1,40 @@
+<template>
+  <div class="col-md-12">
+    <div class="card weather-box">
+      <h4 class="weather-title box-title bg-success text-white">
+        Create New User
+      </h4>
+      <div class="card-body">
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label class="form-control-label">First name</label>
+              <input value.bind="person.firstName" type="text" placeholder="First name" class="form-control" />
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label class="form-control-label">Last name</label>
+              <input value.bind="person.lastName" type="text" placeholder="Last name" class="form-control" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label class="form-control-label">Username</label>
+              <input value.bind="person.username" type="text" placeholder="Username" class="form-control" />
+            </div>
+          </div>
+        </div>
+
+          <button type="submit" class="btn btn-lg btn-info btn-block" click.trigger="createUser()">
+            <span>Create</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

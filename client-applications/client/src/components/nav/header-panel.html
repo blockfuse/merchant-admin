@@ -1,0 +1,43 @@
+<template bindable="router">
+  <header class="header">
+    <div class="top-left">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img src="assets/images/bobs-burgers.png" alt="Logo" style="max-height:40px;" />
+        </a>
+        <a class="navbar-brand hidden" href="#">
+          <img src="assets/images/logo2.png" alt="Logo" />
+        </a>
+        <a class="menutoggle">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+    <div class="top-right">
+      <div class="header-menu">
+        <div class="header-left">
+          <div class="dropdown for-notification">
+            <button class="btn btn-secondary dropdown-toggle" type="button"
+                aria-haspopup="true" aria-expanded="false"
+                style="height: 55px;">
+              <i class="fa fa-bell"></i>
+              <span class="count bg-danger">0</span>
+            </button>
+          </div>
+        </div>
+          <div class="user-area dropdown float-right ${isOpen ? 'show' : ''}">
+            <a href="#" click.trigger="toggleNav()"
+                class="dropdown-toggle active" aria-haspopup="true" aria-expanded="true">
+              <img class="user-avatar rounded-circle" src="assets/images/admin.jpg" alt="User Avatar">
+            </a>
+
+            <div class="user-menu dropdown-menu ${isOpen ? 'show' : ''}">
+              <a class="nav-link" href="#" click.trigger="logout()">
+                <i class="fa fa-power -off"></i>Logout
+              </a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </header>
+</template>

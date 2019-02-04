@@ -1,0 +1,48 @@
+<template>
+  <require from="components/connect-to-gateway"></require>
+  <require from="components/peer-node-details"></require>
+
+  <require from="components/wallet-info"></require>
+  <require from="components/network-info"></require>
+  <require from="components/create-merchant"></require>
+
+  <div class="row mb-4" if.bind="dataStore.merchant">
+    <div class="col">
+      <div class="page-header">
+        <div class="page-title">
+          <h1>${dataStore.merchant.name}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <template if.bind="!dataStore.gatewayPeer">
+        <connect-to-gateway callback.call="connectedToGateway(peer)"></connect-to-gateway>
+      </template>
+    </div>
+
+    <template if.bind="dataStore.merchant">
+      <merchant-details merchant.bind="dataStore.merchant" is-editing.two-way="isEditing"></merchant-details>
+    </template>
+    <template if.bind="!dataStore.merchant">
+      <create-merchant pubkey.bind="nodeInfo.walletInfo.public_key"></create-merchant>
+    </template>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <wallet-info wallet-info.bind="nodeInfo.walletInfo"></wallet-info>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <network-info network-info.bind="nodeInfo.networkInfo"></network-info>
+      </div>
+    </div>
+  </div>
+
+</template>

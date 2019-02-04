@@ -1,0 +1,32 @@
+<template>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <strong class="card-title">${title}</strong>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr repeat.for="transaction of transactions">
+                <td>
+                  <a href="#/${subPath}/${transaction.id}"
+                    style="max-width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    ${transaction.description}
+                  </a>
+                </td>
+                <td>${transaction.tokens}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

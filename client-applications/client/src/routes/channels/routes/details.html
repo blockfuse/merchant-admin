@@ -1,0 +1,25 @@
+<template>
+  <div class="row mb-4">
+    <div class="col">
+      <div class="page-header">
+        <div class="page-title">
+          <h1>${peer.public_key}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <button click.delegate="toggleOpenChannel()">Open Channel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <template if.bind="isOpeningChannel">
+    <open-channel public-key.bind="peer.public_key"></open-channel>
+  </template>
+</template>

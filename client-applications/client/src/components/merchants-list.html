@@ -1,0 +1,29 @@
+<template>
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <strong class="card-title">Merchants</strong>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Pubkey of Node</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr repeat.for="merchant of merchants">
+              <td>
+                <a href="#/merchants/${merchant.id}">${merchant.name}</a>
+              </td>
+              <td>${merchant.description}</td>
+              <td>${merchant.pubkey}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,12 @@
+<template>
+  <require from="routes/wallet/components/display-address"></require>
+
+  <div class="row">
+    <div class="col">
+      <button
+        class="btn btn-outline-primary btn-lg"
+        click.trigger="getNewAddress()">Generate New Address</button>
+      <display-address address.bind="receiveAddress"></display-address>
+    </div>
+  </div>
+</template>

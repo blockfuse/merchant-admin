@@ -1,0 +1,25 @@
+<template>
+  <nav class="navbar navbar-expand-sm navbar-default">
+    <div class="main-menu collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="menu-title">Routes</li>
+        <li repeat.for="row of router.navigation"
+            class="dropdown
+              ${row.isActive ? 'active' : ''}
+              menu-item${!!row.settings.subroutes ? '-has-children show' : ''}">
+          <a href.bind="row.href" class="dropdown-toggle">
+            <i class="menu-icon ${row.settings ? row.settings.icon : 'ti-email'}"></i> ${row.title}
+          </a>
+          <ul class="sub-menu children dropdown-menu menu-item ${!!row.settings.subroutes ? 'show' : ''}">
+            <li repeat.for="subroute of row.settings.subroutes">
+              <i class="fa fa-puzzle-piece"></i>
+              <a href.bind="subroute.href">
+                ${subroute.title}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</template>

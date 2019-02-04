@@ -1,0 +1,80 @@
+<template>
+  <div class="row mb-4">
+    <div class="col">
+      <div class="page-header">
+        <div class="page-title">
+          <h1>
+            ${invoice.description}
+            <small>(${invoice.status})</small>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        <strong class="card-title">Invoice Details</strong>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <p>
+              <label>id</label>
+              <strong>${invoice.id}</strong>
+            </p>
+            <p>
+              <label>Request</label>
+              <input value.bind="invoice.request" class="form-control" disabled="disabled" />
+            </p>
+            <p>
+              <label>description</label>
+              <strong>${invoice.description}</strong>
+            </p>
+            <p>
+              <label>include_address</label>
+              <strong>${invoice.include_address}</strong>
+            </p>
+            <p>
+              <label>tokens</label>
+              <strong>${invoice.tokens}</strong>
+            </p>
+            <p>
+              <label>chain_address</label>
+              <strong>${invoice.chain_address}</strong>
+            </p>
+            <p>
+              <label>confirmed_at</label>
+              <strong>${invoice.confirmed_at}</strong>
+            </p>
+            <p>
+              <label>created_at</label>
+              <strong>${invoice.created_at}</strong>
+            </p>
+            <p>
+              <label>description_hash</label>
+              <strong>${invoice.description_hash}</strong>
+            </p>
+            <p>
+              <label>expires_at</label>
+              <strong>${invoice.expires_at}</strong>
+            </p>
+            <p>
+              <label>is_confirmed</label>
+              <strong>${invoice.is_confirmed}</strong>
+            </p>
+            <p>
+              <label>is_outgoing</label>
+              <strong>${invoice.is_outgoing}</strong>
+            </p>
+            <p>
+              <label>type</label>
+              <strong>${invoice.type}</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

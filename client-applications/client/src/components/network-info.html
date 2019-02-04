@@ -1,0 +1,53 @@
+<template>
+  <div class="card-header">
+    <strong class="card-title">Network Statistics</strong>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-6">
+        <div class="row">
+          <div class="col">
+            <label>Average Channel Size</label>
+            <strong class="pull-right">${networkInfo.average_channel_size}</strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label>Max Channel Size</label>
+            <strong class="pull-right">${networkInfo.maximum_channel_size}</strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label>Min Channel Size</label>
+            <strong class="pull-right">${networkInfo.minimum_channel_size}</strong>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col">
+            <label>Channel Count</label>
+            <strong class="pull-right">${networkInfo.channel_count}</strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label>Node Count</label>
+            <strong class="pull-right">${networkInfo.node_count}</strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label>Total Capacity</label>
+            <strong class="pull-right">${networkInfo.total_capacity}</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

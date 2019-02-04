@@ -1,0 +1,76 @@
+<template>
+  <div class="card-header">
+    <strong class="card-title">Wallet Info</strong>
+  </div>
+  <div class="card-body">
+
+    <div class="row">
+      <div class="col-12">
+
+        <label>Public Key</label>
+        <strong class="pull-right">${walletInfo.public_key}</strong>
+
+      </div>
+      <div class="col-6">
+
+        <div class="row">
+          <div class="col">
+            <label>Alias</label>
+            <strong class="pull-right">${walletInfo.alias}</strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label>Peers Count</label>
+            <strong class="pull-right">${walletInfo.peers_count}</strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label># of Active Channels</label>
+            <strong class="pull-right">${walletInfo.active_channels_count}</strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label># of Pending Channels</label>
+            <strong class="pull-right">${walletInfo.pending_channels_count}</strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label>Version</label>
+            <strong class="pull-right">${walletInfo.version}</strong>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col">
+            <label>Current Block Height</label>
+            <strong class="pull-right">${walletInfo.current_block_height}</strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label>Synced to Chain?</label>
+            <strong class="pull-right">${walletInfo.is_synced_to_chain}</strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label>Last Block Found</label>
+            <strong class="pull-right">${walletInfo.latest_block_at | dateTimeFormat}</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>

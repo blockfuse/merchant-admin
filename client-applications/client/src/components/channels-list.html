@@ -1,0 +1,39 @@
+<template>
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        <strong class="card-title">Channels</strong>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">capacity</th>
+              <th scope="col">is_active</th>
+              <th scope="col">local_balance</th>
+              <th scope="col">received</th>
+              <th scope="col">remote_balance</th>
+              <th scope="col">sent</th>
+              <th scope="col">transfers_count</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr repeat.for="channel of channels">
+              <td>${channel.capacity}</td>
+              <td>${channel.is_active}</td>
+              <td>${channel.local_balance}</td>
+              <td>${channel.received}</td>
+              <td>${channel.remote_balance}</td>
+              <td>${channel.sent}</td>
+              <td>${channel.transfers_count}</td>
+              <td>
+                <button xlass="btn btn-danger btn-sm" click.trigger="close()">X</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</template>

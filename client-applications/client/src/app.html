@@ -1,0 +1,32 @@
+<template>
+  <require from="./components/nav/nav-panel"></require>
+  <require from="./components/nav/header-panel"></require>
+
+  <aside
+    as-element="nav-panel"
+    router.bind="router"
+    is-open.two-way="navIsOpen"
+    class="left-panel">
+  </aside>
+
+  <div class="right-panel">
+    <header-panel is-open.two-way="navIsOpen"></header-panel>
+
+    <div class="content" style="min-height: 500px;">
+      <router-view></router-view>
+    </div>
+    <div class="clearfix"></div>
+    <footer class="site-footer">
+      <div class="footer-inner bg-white">
+        <div class="row">
+          <div class="col-sm-6">
+            Copyright © 2018 BlockFuse.io
+          </div>
+          <div class="col-sm-6 text-right">
+            Designed by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</template>

@@ -1,0 +1,33 @@
+{
+  "name": "@coinmesh/mongodb-adapter",
+  "version": "0.0.2",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "nodemon --exec 'jasmine'"
+  },
+  "devDependencies": {
+    "jasmine": "^3.1.0",
+    "nodemon": "^1.17.4"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "mongodb": "^3.1.8"
+  },
+  "coinmesh": {
+    "type": "adapter",
+    "events": {
+      "loading": [
+        "/mongodb.*start/i"
+      ],
+      "waiting": [
+        ""
+      ],
+      "ready": [
+        "/mongodb.*nodemon.*starting/i"
+      ],
+      "failed": [
+        "/mongodb.*nodemon.*app.*crashed/i"
+      ]
+    }
+  }
+}

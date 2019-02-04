@@ -1,0 +1,47 @@
+<template>
+  <require from="components/display-balance"></require>
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <a style="min-height: 200px;"
+              class="btn btn-outline-success btn-lg btn-block d-flex align-items-center text-center"
+              href="#/wallet/pay">
+            <h1 style="width: 100%;">Pay</h1>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <a style="min-height: 200px;"
+              class="btn btn-outline-dark btn-lg btn-block d-flex align-items-center text-center"
+              href="#/wallet/receive">
+            <h1 style="width: 100%;">Receive</h1>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <display-balance balances.bind="dataStore.balances"></display-balance>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <a style="min-height: 200px;"
+              class="btn btn-outline-warning btn-lg btn-block d-flex align-items-center text-center"
+              href="#/invoices/create">
+            <h1 style="width: 100%;">Gateway Balances</h1>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>

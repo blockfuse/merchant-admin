@@ -1,0 +1,39 @@
+<template>
+  <div class="col-md-12">
+    <div class="card weather-box">
+      <h4 class="weather-title box-title bg-success text-white">
+        Create Merchant
+      </h4>
+      <div class="card-body">
+        <div class="row">
+
+          <div class="col">
+            <div class="form-group">
+              <label class="form-control-label">Name</label>
+              <input value.bind="name" type="text" placeholder="Name of the merchant" class="form-control" />
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label class="form-control-label">Description</label>
+              <input value.bind="description" type="text" placeholder="Description of the merchant" class="form-control" />
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label class="form-control-label">Pubkey</label>
+              <input value.bind="pubkey" type="text" placeholder="Public key of the merchants node" class="form-control" />
+            </div>
+          </div>
+        </div>
+
+          <button type="submit" class="btn btn-lg btn-info btn-block" click.trigger="createMerchant()">
+            <span>Create Merchant</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

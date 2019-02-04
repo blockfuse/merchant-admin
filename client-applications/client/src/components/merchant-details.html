@@ -1,0 +1,65 @@
+<template>
+  <div class="col-6">
+    <div class="card">
+      <div class="card-header">
+        <strong class="card-title">Merchant Details</strong>
+
+        <div class="pull-right">
+          <template if.bind="!isEditing">
+            <button class="btn btn-primary" click.trigger="edit()">Edit</button>
+          </template>
+
+          <template if.bind="isEditing">
+            <button class="btn btn-success" click.trigger="save()">Save</button>
+          </template>
+        </div>
+      </div>
+      <div class="card-body">
+        <template if.bind="!isEditing">
+          <div class="row">
+            <div class="col">
+              <p>
+                <label>Id: </label>
+                <strong>${merchant.id}</strong>
+              </p>
+              <p>
+                <label>Description: </label>
+                <strong>${merchant.description}</strong>
+              </p>
+              <p>
+                <label>Pubkey: </label>
+                <strong>${merchant.pubkey}</strong>
+              </p>
+            </div>
+          </div>
+        </template>
+        <template if.bind="isEditing">
+          <div class="row">
+            <div class="col">
+              <form>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input id="name" value.bind="merchant.name"
+                    class="form-control"
+                    placeholder="Name" />
+                </div>
+
+                <div class="form-group">
+                  <label for="description">Description</label>
+                  <input id="description" value.bind="merchant.description"
+                    class="form-control"
+                    placeholder="Description" />
+                </div>
+
+                <div class="form-group">
+                  <label>Pubkey</label>
+                  <strong>${merchant.pubkey}</strong>
+                </div>
+              </form>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</template>

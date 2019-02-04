@@ -1,0 +1,8 @@
+<template>
+  <require from="components/invoices-list"></require>
+
+  <invoices-list
+    invoices.bind="dataStore.invoices"
+    refresh-callback.call="refreshInvoices()">
+  </invoices-list>
+</template>

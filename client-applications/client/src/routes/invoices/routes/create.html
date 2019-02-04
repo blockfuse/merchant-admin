@@ -1,0 +1,17 @@
+<template>
+  <require from="components/create-invoice"></require>
+  <require from="routes/invoices/components/display-invoice"></require>
+
+  <div class="row">
+    <div class="col">
+
+      <template if.bind="!invoice">
+        <create-invoice new-invoice-created.call="newInvoiceCreated(invoice)"></create-invoice>
+      </template>
+      <template if.bind="invoice">
+        <display-invoice invoice.bind="invoice"></display-invoice>
+      </template>
+
+    </div>
+  </div>
+</template>

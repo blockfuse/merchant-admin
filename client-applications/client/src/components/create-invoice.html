@@ -1,0 +1,39 @@
+<template>
+  <div class="col-md-12">
+    <div class="card weather-box">
+      <h4 class="weather-title box-title bg-success text-white">
+        Create Invoice
+      </h4>
+      <div class="card-body">
+        <div class="row">
+
+          <div class="col">
+            <div class="form-group">
+              <label class="form-control-label">Description</label>
+              <input value.bind="description" type="text" placeholder="Description of the invoice" class="form-control" />
+            </div>
+          </div>
+          <div class="col">
+            <label class="form-control-label">Amount</label>
+            <div class="input-group">
+              <div class="input-group-append ${isCurrencySelectionOpen ? 'show' : ''}">
+                <button click.trigger="toggleCurrencySelectionOpen()" class="btn btn-outline-secondary dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+                  ${activeCurrency | currencySymbol}
+                </button>
+                <div class="dropdown-menu ${isCurrencySelectionOpen ? 'show' : ''}">
+                  <a class="dropdown-item" href="#" click.trigger="setCurrency('btc')">₿</a>
+                  <a class="dropdown-item" href="#" click.trigger="setCurrency('usd')">$</a>
+                </div>
+              </div>
+              <input value.bind="tokens" type="text" class="form-control" aria-label="Amount" placeholder="Number of tokens to send" />
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-info btn-block" click.trigger="createInvoice()">
+          <span>Create Invoice</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</template>

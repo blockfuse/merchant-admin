@@ -1,0 +1,47 @@
+<template>
+  <require from="components/channels-list"></require>
+  <require from="components/open-channel"></require>
+
+  <div class="card">
+    <div class="card-header">
+      <strong class="card-title">Node Details</strong>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <p>
+            <label>Pubkey: </label>
+            <strong>${peer.public_key}</strong>
+          </p>
+          <p>
+            <label>Network address: </label>
+            <strong>${peer.socket}</strong>
+          </p>
+          <p>
+            <label>Tokens received: </label>
+            <strong>${peer.tokens_received}</strong>
+          </p>
+          <p>
+            <label>Tokens sent: </label>
+            <strong>${peer.tokens_sent}</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-primary" click.delegate="toggleOpenChannel()">Open Channel</button>
+        </div>
+      </div>
+
+      <template if.bind="isOpeningChannel">
+        <open-channel
+          show-public-key.bind="false"
+          public-key.bind="peer.public_key"
+          callback.call="channelOpened(channel)"></open-channel>
+      </template>
+    </div>
+  </div>
+
+  <channels-list channels.bind="channels"></channels-list>
+</template>

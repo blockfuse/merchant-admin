@@ -1,0 +1,69 @@
+<template>
+  <require from="resources/value-converters/sats-to-btc"></require>
+  <require from="resources/value-converters/value-in-usd"></require>
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        <strong class="card-title">Invoice</strong>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <strong>
+              <label>Description:</label>
+              ${invoice.description}
+            </strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <strong>
+              <label>Sats:</label>
+              ₿ ${invoice.tokens | satsToBtc}
+            </strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <strong>
+              <label>USD:</label>
+              ${invoice.tokens | valueInUsd:invoice.quotedRate | currencySymbolWithValue:'usd'}
+            </strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <strong>
+              <label>Request:</label>
+              <input value.bind="invoice.request" class="form-control" disabled="disabled" />
+            </strong>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div ref="qrCodeElement"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <template if.bind="!phoneNumberSet">
+              <input value.bind="phoneNumber" class="form-control" />
+              <button class="btn btn-primary" click.trigger="submitPhoneNumber()">Confirm Customer Number</button>
+            </template>
+            <template if.bind="phoneNumberSet">
+              <strong>Number set! ${phoneNumber}</strong>
+            </template>
+            <div class="pull-right">
+              <button class="btn btn-primary" click.trigger="pay()">Pay</button>
+              <button class="btn btn-primary" click.trigger="close()">Close</button>
+              <button class="btn btn-danger" click.trigger="cancel()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

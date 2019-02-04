@@ -1,0 +1,72 @@
+<template>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <a style="min-height: 200px;"
+              class="btn btn-outline-success btn-lg btn-block d-flex align-items-center text-center"
+              href="#/invoices/create">
+            <h1 style="width: 100%;">Create new Invoice</h1>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <strong class="card-title">Invoices</strong>
+
+          <div class="pull-right">
+            <button class="btn btn-sm btn-outline-primary"
+                click.trigger="refresh()"
+                disabled.bind="isRefreshingInvoices">
+              <i class="fa fa-refresh ${isRefreshingInvoices ? 'fa-spin' : ''}"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="col-3 text" scope="col">Description</th>
+                <th scope="col">Tokens</th>
+                <th scope="col">Confirmed at</th>
+                <th scope="col">Created at</th>
+                <th scope="col">Expires at</th>
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr repeat.for="invoice of invoices">
+                <td class="col-3 text">
+                  <a href="#/invoices/${invoice.id}"
+                    style="width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    ${invoice.description}
+                  </a>
+                </td>
+                <td>${invoice.tokens}</td>
+                <td>${invoice.confirmed_at | dateTimeFormat}</td>
+                <td>${invoice.created_at | dateTimeFormat}</td>
+                <td>${invoice.expires_at | dateTimeFormat}</td>
+                <td>${invoice.status}</td>
+                <td>
+                  <template
+                    if.bind="(invoice.status === 'paid')">
+                    <button class="btn btn-success" click.delegate="requestSweep(invoice)">Sweep funds</button>
+                  </template>
+                  <template
+                    if.bind="(invoice.status === 'invoiced')">
+                    <button class="btn btn-success" click.delegate="confirm(invoice)">Confirm</button>
+                  </template>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

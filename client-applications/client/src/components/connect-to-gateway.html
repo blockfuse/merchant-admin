@@ -1,0 +1,36 @@
+<template>
+  <div class="col-md-12">
+    <div class="card weather-box">
+      <h4 class="weather-title box-title bg-success text-white">
+        Connect to Payment Gateway
+      </h4>
+      <div class="card-body">
+        <div class="form-group">
+          <label class="form-control-label">Pubkey</label>
+          <input value.bind="publicKey" type="text" placeholder="Public key of other node" class="form-control" />
+        </div>
+        <div class="row">
+
+          <div class="col">
+            <div class="form-group">
+              <label class="form-control-label">Host</label>
+              <input value.bind="host" type="text" placeholder="Host of other node" class="form-control" />
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label class="form-control-label">Port</label>
+              <input value.bind="port" type="text" placeholder="Port of the other node" class="form-control" />
+            </div>
+          </div>
+        </div>
+
+          <button type="submit" class="btn btn-lg btn-info btn-block" click.trigger="connect()">
+            <span>Connect</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
